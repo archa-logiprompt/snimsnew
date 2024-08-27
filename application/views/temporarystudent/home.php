@@ -107,14 +107,7 @@
                         </div>
 
 
-                <div class="col-md-3">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1"><?php echo $this->lang->line('roll_no'); ?></label>
-                        <input id="roll_no" name="roll_no" placeholder="" type="text" class="form-control"
-                            value="<?php echo $getdatafromstudentdetails->roll_no ?>"<?php echo $readonly; ?> />
-                        <span class="text-danger"><?php echo form_error('roll_no'); ?></span>
-                    </div>
-                </div>
+               
 
                 <div class="col-md-3">
                                     <div class="form-group">
@@ -257,7 +250,7 @@
 
 
 
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                     <div class="form-group">
                         <label for="exampleInputEmail1"><?php echo $this->lang->line('fees_year'); ?></label><small
                             class="text-danger"> *</small>
@@ -277,7 +270,7 @@
                         </select>
                         <span class="text-danger"><?php echo form_error('year'); ?></span>
                     </div>
-                </div>
+                </div> -->
 
 
 
