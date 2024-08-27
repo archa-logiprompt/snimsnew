@@ -41,7 +41,9 @@ class TemporaryUser extends Temporary_Student_Controller
         $data['existing_details']=$existing_details;
         $paymentsucceess = $this->Temporary_admission_model->paymentsucceess($userdata['id']);
         $data['paymentsucceess'] = $paymentsucceess;
-
+         
+         $data['staff_approved_document'] = $this->db->where('user_id',$userdata['id'])->get('temp_user')->row()->staff_approved_document;
+        
         $categoryamount = $this->Temporary_admission_model->getamountbasedoncategory($userdata['id']);
         $totalAmount = 0;
         $paidAmount = 0;
@@ -180,7 +182,7 @@ class TemporaryUser extends Temporary_Student_Controller
         $data['getdatafromstudentdetails'] = $getdatafromstudentdetails;
 
         $data['commentdetails'] = $this->Temporary_admission_model->commentdetails($userdata['id']);
-
+       
         $section = $this->Temporary_admission_model->getsections();
         $data['section'] = $section;
         $quota = $this->Temporary_admission_model->getquota();

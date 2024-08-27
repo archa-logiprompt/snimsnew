@@ -694,6 +694,7 @@ class Temporary_admission extends Admin_Controller
             'description' => "Manual Payment of " . $candidate_name->firstname . " " . $candidate_name->lastname ,
         );
         $this->Temporary_admission_model->getCreateLog($log);
+        $this->db->where('id',$id)->update('temporary_admission',['status'=>2]);
         redirect('admin/temporary_admission/show/' . $id);
     }
 
@@ -736,6 +737,8 @@ class Temporary_admission extends Admin_Controller
         );
         $this->Temporary_admission_model->getCreateLog($log);
         $userdata = $this->session->userdata();
+        $documentName = $this->sampledocument($id, 1, []);
+        $this->db->where('user_id',$id)->update('temp_user',['staff_approved_document'=>$documentName]);
         redirect('admin/temporary_admission/show/' . $id);
     }
     public function comment($id)

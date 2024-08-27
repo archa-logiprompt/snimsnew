@@ -448,6 +448,97 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                 </div>
                             </div>
                             <div class="tshadow mb25 bozero">
+                                <h3 class="pagetitleh2"><?php echo "12th Exam details" ?>
+                                    <?php echo $this->lang->line('detail'); ?>
+                                </h3>
+                                <div class="table-responsive around10 pt0">
+                                    <table class="table table-hover table-striped tmb0">
+                                        <tbody>
+                                            <tr>
+                                                <td><?php echo "Last Institution Attended " ?></td>
+                                                <td><?php echo $getstudentdetails['previous_school']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo "Name of Qualifying Examination" ?></td>
+                                                <td><?php echo $getstudentdetails['qualifying_exam']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo "Reg No" ?></td>
+                                                <td><?php echo $getstudentdetails['regno']; ?></td>
+                                            </tr> 
+                                             <tr>
+                                                <td><?php echo "Month & Year" ?></td>
+                                                <td><?php echo $getstudentdetails['monthyear']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo "Total mark Scored" ?></td>
+                                                <td><?php echo $getstudentdetails['total_mark']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo "Neet Rank" ?></td>
+                                                <td><?php echo $getstudentdetails['neetrank']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo "Total Mark" ?></td>
+                                                <td><?php echo $getstudentdetails['totmark']; ?></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tshadow mb25 bozero">
+                                <h3 class="pagetitleh2"><?php echo "NEET Details" ?>
+                                    <?php echo $this->lang->line('detail'); ?>
+                                </h3>
+                                <div class="table-responsive around10 pt0">
+                                    <table class="table table-hover table-striped tmb0">
+                                        <tbody>
+                                            <tr>
+                                                <td><?php echo "Neet Registration Number " ?></td>
+                                                <td><?php echo $getstudentdetails['neet_reg']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo "Neet Rank" ?></td>
+                                                <td><?php echo $getstudentdetails['neet_rank']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo "Marks" ?></td>
+                                                <td><?php echo "Physics"." ".$getstudentdetails['neet_phy_mark_obtained'].","."Chemistry"." ".$getstudentdetails['neet_chem_mark_obtained'].","."Biology"." ".$getstudentdetails['neet_bio_mark_biology']?></td>
+                                            </tr> 
+                                            <tr>
+                                                <td><?php echo "Percentage" ?></td>
+                                                <td><?php echo $getstudentdetails['neet_percentile']; ?></td>
+                                            </tr> 
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tshadow mb25 bozero">
+                                <h3 class="pagetitleh2"><?php echo "KEAM Details" ?>
+                                    <?php echo $this->lang->line('detail'); ?>
+                                </h3>
+                                <div class="table-responsive around10 pt0">
+                                    <table class="table table-hover table-striped tmb0">
+                                        <tbody>
+                                            <tr>
+                                                <td><?php echo "Keam Roll Number" ?></td>
+                                                <td><?php echo $getstudentdetails['keam_roll_no']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo "Kerala Medical Rank" ?></td>
+                                                <td><?php echo $getstudentdetails['kerala_medical_rank']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <td><?php echo "Seat Type AIQ/Open merit/NRI " ?></td>
+                                                <td><?php echo $getstudentdetails['seat_type']; ?></td>                                            </tr> 
+                                          
+                                           
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tshadow mb25 bozero">
                                 <h3 class="pagetitleh2"><?php echo $this->lang->line('parent'); ?> /
                                     <?php echo $this->lang->line('guardian_details'); ?>
                                 </h3>
@@ -493,7 +584,12 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                         <tr>
                                             <td><?php echo $this->lang->line('guardian_name'); ?></td>
                                             <td><?php echo $getstudentdetails['guardian_name']; ?></td>
-
+                                            <td rowspan="3"><img class="profile-user-img img-responsive img-circle"
+                                                    src="<?php if (!empty($getstudentdetails["gaurdian_pic"])) {
+                                                        echo base_url() . $getstudentdetails["gaurdian_pic"];
+                                                    } else {
+                                                        echo base_url() . "uploads/student_images/no_image.png";
+                                                    } ?>"></td>         
                                         </tr>
                                         <tr>
                                             <td><?php echo $this->lang->line('guardian_email'); ?></td>
@@ -520,6 +616,8 @@ $currency_symbol = $this->customlib->getSchoolCurrencyFormat();
                                     </table>
                                 </div>
                             </div>
+
+                            
                             <?php
 
                             if ($this->module_lib->hasActive('transport')) {

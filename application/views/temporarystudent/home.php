@@ -309,14 +309,10 @@
 
                         ?>
                         <select class="form-control" name="blood_group">
-                        <option value="A+ve" <?php echo ($getdatafromstudentdetails->blood_group == 'A+ve') ? 'selected' : ''; ?>>A+ve</option>
-    <option value="A-ve" <?php echo ($getdatafromstudentdetails->blood_group == 'A-ve') ? 'selected' : ''; ?>>A-ve</option>
-    <option value="B+ve" <?php echo ($getdatafromstudentdetails->blood_group == 'B+ve') ? 'selected' : ''; ?>>B+ve</option>
-    <option value="B-ve" <?php echo ($getdatafromstudentdetails->blood_group == 'B-ve') ? 'selected' : ''; ?>>B-ve</option>
-    <option value="AB+ve" <?php echo ($getdatafromstudentdetails->blood_group == 'AB+ve') ? 'selected' : ''; ?>>AB+ve</option>
-    <option value="AB-ve" <?php echo ($getdatafromstudentdetails->blood_group == 'AB-ve') ? 'selected' : ''; ?>>AB-ve</option>
-    <option value="O+ve" <?php echo ($getdatafromstudentdetails->blood_group == 'O+ve') ? 'selected' : ''; ?>>O+ve</option>
-    <option value="O-ve" <?php echo ($getdatafromstudentdetails->blood_group == 'O-ve') ? 'selected' : ''; ?>>O-ve</option>
+                            <option value="">Select</option>
+                            <option value="A+ve" <?php echo ($getdatafromstudentdetails->blood_group == 'A+ve') ? 'selected' : ''; ?>>A+ve</option>
+                            <option value="B+ve" <?php echo ($getdatafromstudentdetails->blood_group == 'B+ve') ? 'selected' : ''; ?>>B+ve</option>
+                            <option value="AB+ve" <?php echo ($getdatafromstudentdetails->blood_group == 'AB+ve') ? 'selected' : ''; ?>>AB+ve</option>
                         </select>
 
 
@@ -848,19 +844,19 @@
                                 <td>
                                     <div class="form-group">
                                         <input type="text" id="tot1" class="form-control" name="tot1"
-                                            value="<?php echo $getdatafromstudentdetails->tot1 ?>" <?php echo $readonly; ?> readonly/>
+                                            value="<?php echo $getdatafromstudentdetails->tot1 ?>" <?php echo $readonly; ?> />
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-group">
                                         <input type="text" id="tot2" class="form-control" name="tot2"
-                                            value="<?php echo $getdatafromstudentdetails->tot2; ?>" readonly  />
+                                            value="<?php echo $getdatafromstudentdetails->tot2; ?>" <?php echo $readonly; ?> />
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-group">
                                         <input type="text" id="tot3" class="form-control" name="tot3"
-                                            value="<?php echo $getdatafromstudentdetails->tot3; ?>" readonly  />
+                                            value="<?php echo $getdatafromstudentdetails->tot3; ?>" <?php echo $readonly; ?> />
                                     </div>
                                 </td>
                             </tr>
@@ -1423,6 +1419,14 @@
         </div>
 
       
+<?php 
+if($staff_approved_document != NULL){ 
+$document_link = str_replace("home/snimsins/edusoft.snimsinstitutions.org/", "",$staff_approved_document);
+?>
+<div class="form-group mt-2 mb-4">
+    <a href='<?php echo $document_link ?>' download class='btn btn-primary'>Download Approved Document</a>
+</div>
+<?php } ?>
 
 <div class="form-group">
     <div class="form-check">
