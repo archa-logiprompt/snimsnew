@@ -459,9 +459,9 @@
         </label>
         <div>
             <?php if (!empty($getdatafromstudentdetails->father_pic)) : ?>
-                <img src="<?php echo base_url($getdatafromstudentdetails->father_pic); ?>" alt="Father's Photo" class="img-thumbnail" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+                <img src="<?php echo base_url($getdatafromstudentdetails->father_pic); ?>" alt="Father's Photo" id="father_pic" class="img-thumbnail" style="max-width: 100%; height: auto; margin-bottom: 10px;">
             <?php endif; ?>
-            <input class="filestyle form-control" type='file' name='father_pic' id="file" size='20' <?php echo $readonly; ?> />
+            <input class="filestyle form-control" type='file' name='father_pic' id="father_pic" size='20' <?php echo $readonly; ?> />
         </div>
         <span class="text-danger"><?php echo form_error('father_pic'); ?></span>
     </div>
@@ -502,9 +502,9 @@
                         </label>
                         <div>
                             <?php if (!empty($getdatafromstudentdetails->mother_pic)) : ?>
-                                <img src="<?php echo base_url($getdatafromstudentdetails->mother_pic); ?>" alt="Mother's Photo" class="img-thumbnail" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+                                <img src="<?php echo base_url($getdatafromstudentdetails->mother_pic); ?>" alt="Mother's Photo" class="img-thumbnail" id="mother_pic" style="max-width: 100%; height: auto; margin-bottom: 10px;">
                             <?php endif; ?>
-                            <input class="filestyle form-control" type='file' name='mother_pic' id="file" size='20' <?php echo $readonly; ?> />
+                            <input class="filestyle form-control" type='file' name='mother_pic' id="mother_pic" size='20' <?php echo $readonly; ?> />
                         </div>
                         <span class="text-danger"><?php echo form_error('mother_pic'); ?></span>
                     </div>
@@ -526,19 +526,19 @@
         <label><?php echo $this->lang->line('if_guardian_is'); ?><small class="text-danger"> *</small>&nbsp;&nbsp;&nbsp;</label>
         <label class="radio-inline">
             <input type="radio" name="guardian_is" 
-                <?php echo set_value('guardian_is', 'father') == "father" ? "checked" : ""; ?> 
+                <?php echo set_value('guardian_is', 'other') == "father" ? "checked" : ""; ?> 
                 value="father"> 
             <?php echo $this->lang->line('father'); ?>
         </label>
         <label class="radio-inline">
             <input type="radio" name="guardian_is" 
-                <?php echo set_value('guardian_is', 'father') == "mother" ? "checked" : ""; ?> 
+                <?php echo set_value('guardian_is', 'other') == "mother" ? "checked" : ""; ?> 
                 value="mother"> 
             <?php echo $this->lang->line('mother'); ?>
         </label>
         <label class="radio-inline">
             <input type="radio" name="guardian_is" 
-                <?php echo set_value('guardian_is', 'father') == "other" ? "checked" : ""; ?> 
+                <?php echo set_value('guardian_is', 'other') == "other" ? "checked" : ""; ?> 
                 value="other"> 
             <?php echo $this->lang->line('other'); ?>
         </label>
@@ -611,9 +611,18 @@
                             
                         <div>
                         <?php if (!empty($getdatafromstudentdetails->guardian_pic)) : ?>
-                                <img src="<?php echo base_url($getdatafromstudentdetails->guardian_pic); ?>" alt="Mother's Photo" class="img-thumbnail" style="max-width: 100%; height: auto; margin-bottom: 10px;">
-                            <?php endif; ?>
-                            <input class="filestyle form-control" type='file' name='guardian_pic' id="file"
+                                <img src="<?php echo base_url($getdatafromstudentdetails->guardian_pic); ?>" alt="guardian Photo" id="" class="img-thumbnail"  id="guardian_pic" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+                               <?php else :?>
+                                <img src="<?php echo base_url($getdatafromstudentdetails->guardian_pic); ?>" 
+                                alt="Guardian's Photo" id="guardian_pic" class="img-thumbnail"
+                                style="max-width: 100%; height: auto; margin-bottom: 10px;">
+                                <?php endif; ?>
+                        
+                   
+
+
+                           
+                            <input class="filestyle form-control" type='file' name='guardian_pic' id="guardian_pic"
                                 size='20' <?php echo $readonly; ?> />
                         </div>
                         <span class="text-danger"><?php echo form_error('file'); ?></span>
@@ -1573,17 +1582,28 @@ document.addEventListener('DOMContentLoaded', function() {
                     $('#guardian_name').val($('#father_name').val());
                     $('#guardian_phone').val($('#father_phone').val());
                     $('#guardian_occupation').val($('#father_occupation').val());
+                   
+                    $('#guardian_pic').attr('src', '<?php echo base_url($getdatafromstudentdetails->father_pic); ?>');
+    
                     $('#guardian_relation').val("Father")
+                    
                 } else if (value == "mother") {
                     $('#guardian_name').val($('#mother_name').val());
                     $('#guardian_phone').val($('#mother_phone').val());
                     $('#guardian_occupation').val($('#mother_occupation').val());
+                    $('#guardian_pic').attr('src', '<?php echo base_url($getdatafromstudentdetails->mother_pic); ?>');
+
                     $('#guardian_relation').val("Mother")
+                   
+
                 } else {
                     $('#guardian_name').val("");
                     $('#guardian_phone').val("");
                     $('#guardian_occupation').val("");
                     $('#guardian_relation').val("")
+                    // $('#guardian_pic').val("")
+                    $('#guardian_pic').attr('src', '<?php echo base_url($getdatafromstudentdetails->guardian_pic); ?>');
+
                 }
             }
         });
