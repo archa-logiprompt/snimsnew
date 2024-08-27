@@ -311,8 +311,13 @@
                         <select class="form-control" name="blood_group">
                             <option value="">Select</option>
                             <option value="A+ve" <?php echo ($getdatafromstudentdetails->blood_group == 'A+ve') ? 'selected' : ''; ?>>A+ve</option>
-                            <option value="B+ve" <?php echo ($getdatafromstudentdetails->blood_group == 'B+ve') ? 'selected' : ''; ?>>B+ve</option>
-                            <option value="AB+ve" <?php echo ($getdatafromstudentdetails->blood_group == 'AB+ve') ? 'selected' : ''; ?>>AB+ve</option>
+    <option value="A-ve" <?php echo ($getdatafromstudentdetails->blood_group == 'A-ve') ? 'selected' : ''; ?>>A-ve</option>
+    <option value="B+ve" <?php echo ($getdatafromstudentdetails->blood_group == 'B+ve') ? 'selected' : ''; ?>>B+ve</option>
+    <option value="B-ve" <?php echo ($getdatafromstudentdetails->blood_group == 'B-ve') ? 'selected' : ''; ?>>B-ve</option>
+    <option value="AB+ve" <?php echo ($getdatafromstudentdetails->blood_group == 'AB+ve') ? 'selected' : ''; ?>>AB+ve</option>
+    <option value="AB-ve" <?php echo ($getdatafromstudentdetails->blood_group == 'AB-ve') ? 'selected' : ''; ?>>AB-ve</option>
+    <option value="O+ve" <?php echo ($getdatafromstudentdetails->blood_group == 'O+ve') ? 'selected' : ''; ?>>O+ve</option>
+    <option value="O-ve" <?php echo ($getdatafromstudentdetails->blood_group == 'O-ve') ? 'selected' : ''; ?>>O-ve</option>
                         </select>
 
 
@@ -853,19 +858,19 @@
                                 <td>
                                     <div class="form-group">
                                         <input type="text" id="tot1" class="form-control" name="tot1"
-                                            value="<?php echo $getdatafromstudentdetails->tot1 ?>" <?php echo $readonly; ?> />
+                                            value="<?php echo $getdatafromstudentdetails->tot1 ?>" readonly />
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-group">
                                         <input type="text" id="tot2" class="form-control" name="tot2"
-                                            value="<?php echo $getdatafromstudentdetails->tot2; ?>" <?php echo $readonly; ?> />
+                                            value="<?php echo $getdatafromstudentdetails->tot2; ?>" readonly />
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-group">
                                         <input type="text" id="tot3" class="form-control" name="tot3"
-                                            value="<?php echo $getdatafromstudentdetails->tot3; ?>" <?php echo $readonly; ?> />
+                                            value="<?php echo $getdatafromstudentdetails->tot3; ?>" readonly />
                                     </div>
                                 </td>
                             </tr>
